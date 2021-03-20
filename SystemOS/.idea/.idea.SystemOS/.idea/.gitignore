@@ -1,0 +1,13 @@
+﻿# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/modules.xml
+/projectSettingsUpdater.xml
+/.idea.SystemOS.iml
+/contentModel.xml
+# Datasource local storage ignored files
+/../../../../../../../../../../:\Users\KoTz\Desktop\System_OS\System_OS\SystemOS\.idea\.idea.SystemOS\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
