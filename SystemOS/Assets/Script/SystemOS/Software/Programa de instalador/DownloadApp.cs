@@ -32,20 +32,10 @@ public class DownloadApp : MonoBehaviour
 
   public void ConnectStore ()
   {
-     if (RedeWifi.connect)
-        {
-         for (int i = 0; i < storeOn.Length; i++)
-          {
-               storeOn[i].enabled = true; 
-          }
-        }
-        else 
-        {
-           for (int i = 0; i < Storeoff.Length; i++)
-           {
-               Storeoff[i].enabled = true;
-           }
-        }
+     if (RedeWifi.isconnect)
+     {
+
+     }
   }
 
 

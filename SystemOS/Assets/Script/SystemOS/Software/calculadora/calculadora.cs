@@ -15,8 +15,9 @@ public class calculadora : MonoBehaviour {
      {
         resultado.text = ""; 
         Mostrasoma.text = "";
-        
-       foreach (Image c in Calculadora)
+
+      
+        foreach (Image c in Calculadora)
        { 
          foreach (Text t in TxTNumeroscaract)
          {
@@ -27,7 +28,6 @@ public class calculadora : MonoBehaviour {
        }
 
      }
-     
      public void Btn_close (){
         
         foreach (Image c in Calculadora)
@@ -242,6 +242,8 @@ public class calculadora : MonoBehaviour {
         
   }
 
+
+ 
  
   // Botões mais ou menos , divisão , igual , multiplicação =========================================================================================================
     
@@ -251,8 +253,18 @@ public class calculadora : MonoBehaviour {
      SomarMenos();
      Somardivisao();
      Somarmultiplicação();
-    this.resultado.text = resposta.ToString($"{resposta.ToString(".")}");
-
+    
+     if (resposta == 1000 || resposta > 1000)
+     {
+        resultado.text = $"{resposta.ToString("N")}";
+      }
+     else 
+     {
+      this.resultado.text = resposta.ToString($"{resposta.ToString(".")}");
+     }
+    
+     
+ 
     
   } 
   
