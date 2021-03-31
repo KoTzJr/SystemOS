@@ -12372,6 +12372,7 @@ GameObject:
   - component: {fileID: 1487273841}
   - component: {fileID: 1487273840}
   - component: {fileID: 1487273842}
+  - component: {fileID: 1487273843}
   m_Layer: 5
   m_Name: Jogo da velha
   m_TagString: Untagged
@@ -12501,6 +12502,21 @@ MonoBehaviour:
   linha678: {fileID: 1305209919}
   player1Value: 000000000000000000000000000000000000000000000000000000000000000000000000
   player2Value: 000000000000000000000000000000000000000000000000000000000000000000000000
+  button: 000000000000000000
+  testar: 0000
+  l: 
+--- !u!114 &1487273843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487273838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70a4cb6f62da49240b52e8526828e765, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1503942686
 GameObject:
   m_ObjectHideFlags: 0

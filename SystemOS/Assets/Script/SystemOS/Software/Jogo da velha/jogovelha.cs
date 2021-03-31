@@ -55,7 +55,7 @@ public class jogovelha : MonoBehaviour {
    
    for (int i = 0; i < player1Value.Length; i++)
    {
-     if (player1Value[0] == 1 && player1Value[3] == 3 && player1Value[6] == 6 && Ply1b && a == true)
+     if (player1Value[0] == 1 && player1Value[3] == 3 && player1Value[6] == 6 && Ply1b && a == true && button[0] == true && button[3] == true && button[6] == true)
      {  
         for (int v = 0; v < Botoesmarcado.Length; v++)               // Ok
         {    
@@ -64,7 +64,7 @@ public class jogovelha : MonoBehaviour {
              Player1++;
         }
      }
-     else if (player1Value[0] == 1 && player1Value[4] == 4 && player1Value[8] == 8 && Ply1b && a == true)
+     else if (player1Value[0] == 1 && player1Value[4] == 4 && player1Value[8] == 8 && Ply1b && a == true && button[0] == true && button[4] == true && button[8] == true)
      {
         for (int v = 0; v < Botoesmarcado.Length; v++)
         {
@@ -74,7 +74,7 @@ public class jogovelha : MonoBehaviour {
          Player1++;  
         }
      }
-     else if (player1Value[2] == 2 && player1Value[4] == 4 && player1Value[6] == 6 && Ply1b && a == true)
+     else if (player1Value[2] == 2 && player1Value[4] == 4 && player1Value[6] == 6 && Ply1b && a == true && button[2] == true && button[4] && button[6] == true)
      {
        for (int v = 0; v < Botoesmarcado.Length; v++)
        {
@@ -84,7 +84,7 @@ public class jogovelha : MonoBehaviour {
        }
        
      }
-     else if (player1Value[3] == 3 && player1Value[4] == 4 && player1Value[5] == 5 && Ply1b && a == true)
+     else if (player1Value[3] == 3 && player1Value[4] == 4 && player1Value[5] == 5 && Ply1b && a == true && button[3] == true && button[4] == true && button[5] == true)
      {  
         for (int v = 0; v < Botoesmarcado.Length; v++){
           Botoesmarcado[v].enabled = false;
@@ -93,7 +93,7 @@ public class jogovelha : MonoBehaviour {
         }
        
      }
-     else if (player1Value[1] == 1 && player1Value[4] == 4 && player1Value[7] == 7 && Ply1b && a == true)
+     else if (player1Value[1] == 1 && player1Value[4] == 4 && player1Value[7] == 7 && Ply1b && a == true && button[1] == true && button[4] == true && button[7] == true)
      {
        for (int v = 0; v < Botoesmarcado.Length; v++)
        {
@@ -102,7 +102,7 @@ public class jogovelha : MonoBehaviour {
           linha147.SetActive(true);
        }
      }
-     else if (player1Value[2] == 2 && player1Value[5] == 5 && player1Value[8] == 8 && Ply1b && a == true)
+     else if (player1Value[2] == 2 && player1Value[5] == 5 && player1Value[8] == 8 && Ply1b && a == true && button[2] == true && button[5] == true && button[8] == true)
      {
        for (int v = 0; v < Botoesmarcado.Length; v++){
          Botoesmarcado[v].enabled = false;
@@ -110,7 +110,7 @@ public class jogovelha : MonoBehaviour {
          linha258.SetActive(true);
        }
      }
-     else if (player1Value[0] == 1 && player1Value[1] == 1  && player1Value[2] == 2 && Ply1b && a == true)
+     else if (player1Value[0] == 1 && player1Value[1] == 1  && player1Value[2] == 2 && Ply1b && a == true && button[0] == true && button[1] == true && button[2] == true)
      { 
        for (int v = 0; v < Botoesmarcado.Length; v++){
           Botoesmarcado[v].enabled = false;
@@ -119,7 +119,7 @@ public class jogovelha : MonoBehaviour {
        }
         
      }
-     else if (player1Value[6] == 6 && player1Value[7] == 7 && player1Value[8] == 8 && Ply1b && a == true)
+     else if (player1Value[6] == 6 && player1Value[7] == 7 && player1Value[8] == 8 && Ply1b && a == true && button[6] == true && button[7] == true && button[8] == true)
      {
        for (int v = 0; v < Botoesmarcado.Length; v++){
          Botoesmarcado[v].enabled = false;
@@ -137,7 +137,11 @@ public class jogovelha : MonoBehaviour {
 
  public void WinsPlayer2 ()
  {
-   if (player2Value[0] == 0 && player2Value[3] == 3 && player2Value[6] == 6 && Ply2b  && a == false)
+ 
+ 
+  for (int i = 0;  i < button.Length; i++)
+  {
+     if (player2Value[0] == 0 && player2Value[3] == 3 && player2Value[6] == 6 && Ply2b && a == false && button[0] == true && button[3] == true && button[6] == true)
    {
      for (int v = 0; v < Botoesmarcado.Length; v++)
      {
@@ -146,7 +150,7 @@ public class jogovelha : MonoBehaviour {
       Player2++;
      }
    }
-   else if (player2Value[0] == 0 && player2Value[4] == 4 && player2Value[8] == 8 && Ply2b && a == false)
+   else if (player2Value[0] == 0 && player2Value[4] == 4 && player2Value[8] == 8 && Ply2b && a == false && button[0] == true && button[4] == true && button[8] == true)
    {
      for (int v = 0; v < Botoesmarcado.Length; v++)
      {
@@ -158,7 +162,7 @@ public class jogovelha : MonoBehaviour {
       
      
    }
-   else if (player2Value[2] == 2 && player2Value[4] == 4 && player2Value[6] == 6 && Ply2b && a == false )
+   else if (player2Value[2] == 2 && player2Value[4] == 4 && player2Value[6] == 6 && Ply2b && a == false && button[2] == true && button[4] == true && button[6] == true)
    {
       for (int v = 0; v < Botoesmarcado.Length; v++)
       {
@@ -169,7 +173,7 @@ public class jogovelha : MonoBehaviour {
      
      
    } 
-   else if (player2Value[3] == 3 && player2Value[4] == 4 && player2Value[5] == 5 && Ply2b && a == false)
+   else if (player2Value[3] == 3 && player2Value[4] == 4 && player2Value[5] == 5 && Ply2b && a == false && button[3] == true && button[4] == true && button[5] == true)
    {
      for (int v = 0; v < Botoesmarcado.Length; v++)
      {
@@ -179,7 +183,7 @@ public class jogovelha : MonoBehaviour {
      }
       
    }
-   else if (player2Value[1] == 1 && player2Value[4] == 4 && player2Value[7] == 7 && Ply2b && a == false){
+   else if (player2Value[1] == 1 && player2Value[4] == 4 && player2Value[7] == 7 && Ply2b && a == false && button[1] == true && button[4] == true && button[7] == true){
      
       for (int v = 0; v < Botoesmarcado.Length; v++)
       {
@@ -189,7 +193,7 @@ public class jogovelha : MonoBehaviour {
       }
       
    }
-  else if (player2Value[2] == 2 && player2Value[5] == 5 && player2Value[8] == 8 && Ply2b && a == false){
+  else if (player2Value[2] == 2 && player2Value[5] == 5 && player2Value[8] == 8 && Ply2b && a == false && button[2] == true && button[5] == true && button[8] == true){
      
      for (int v = 0; v < Botoesmarcado.Length; v++)
      {
@@ -199,38 +203,52 @@ public class jogovelha : MonoBehaviour {
      }
      
   }
-  else if (player2Value[0] == 0 && player2Value[1] == 1  && player2Value[2] == 2 && Ply2b  && a == false){
+  else if (player2Value[0] == 0 && player2Value[1] == 1  && player2Value[2] == 2 && Ply2b  && a == false && button[0] == true && button[1] == true && button[2] == true){
     
      for (int v = 0; v < Botoesmarcado.Length; v++)
      {
        Botoesmarcado[v].enabled = false;
        linha012.SetActive(true);
-        Player2++;
+       Player2++;
      }
       
   }
-  else if (player2Value[6] == 6 && player2Value[7] == 7 && player2Value[8] == 8 && Ply2b && a == false)
+  else if (player2Value[6] == 6 && player2Value[7] == 7 && player2Value[8] == 8 && Ply2b && a == false && button[6] == true && button[7] == true && button[8] == true)
   {
-    for (int v = 0; v < Botoesmarcado.Length; v++){
+    for (int v = 0; v < Botoesmarcado.Length; v++)
+    {
       Botoesmarcado[v].enabled = false;
       linha678.SetActive(true);
       Player2++;
     }
-
+   }
   }
-
-   
- }
+}
  public int[] player1Value , player2Value;
  
  bool Ply1b , Ply2b;
 
  bool a;
 
+ public bool[] button;
+
+ public bool[] testar;
+
+ public List<bool> l = new List<bool>();
+
  ///=========================================================================================================================
  public void Btn_0 ()
  { 
+
    play = !play;
+
+   //aa
+
+   for (int i = 0; i < testar.Length; i++)
+   {
+       testar[0] = !testar[0];
+       l.Add(testar[0]);
+   }
 
    if (play)   
    {
@@ -255,11 +273,24 @@ public class jogovelha : MonoBehaviour {
       Botoesmarcado[0].interactable = true;
    }
 
+   for (int i = 0; i < button.Length; i++)
+   {
+    button[0] = true;
+   }
+
  }
  
  public void Btn_1 ()
  {
+   
    play = !play;
+
+   
+   for (int i = 0; i < testar.Length; i++)
+   {
+       testar[1] = !testar[1];
+       l.Add(testar[i]);
+   }
   
    if (play)
     {  
@@ -283,11 +314,18 @@ public class jogovelha : MonoBehaviour {
      circulo[1].SetActive(true);
      Botoesmarcado[1].interactable = true;
     }
+
+    for (int i = 0; i < button.Length; i++)
+    {
+   
+    button[1] = true;
+   }
      
  }
 
  public void Btn_2 ()
  {
+  
    play = !play;
 
    if (play)
@@ -312,6 +350,11 @@ public class jogovelha : MonoBehaviour {
      circulo[2].SetActive(true);
      Botoesmarcado[2].interactable = true;
    }
+
+  for (int i = 0; i < button.Length; i++)
+  {
+   button[2] = true;
+  }
  }
 
  public void Btn_3 ()
@@ -341,6 +384,10 @@ public class jogovelha : MonoBehaviour {
      circulo[3].SetActive(true);
      Botoesmarcado[3].interactable = true;
    }
+    for (int i = 0; i < button.Length; i++)
+  {
+   button[3] = true;
+  }
  }
 
  public void Btn_4 ()
@@ -372,6 +419,11 @@ public class jogovelha : MonoBehaviour {
      Botoesmarcado[4].interactable = true;
    }
 
+  for (int i = 0; i < button.Length; i++)
+  {
+    button[4] = true;
+  }
+
  }
 
  public void Btn_5 ()
@@ -401,6 +453,11 @@ public class jogovelha : MonoBehaviour {
       circulo[5].SetActive(true);
       Botoesmarcado[5].interactable = true;
    }
+
+   for (int i = 0; i < button.Length; i++)
+  {
+   button[5] = true;
+  }
 
  }
 
@@ -432,6 +489,11 @@ public class jogovelha : MonoBehaviour {
      Botoesmarcado[6].interactable = true;
    }
 
+   for (int i = 0; i < button.Length; i++)
+  {
+   button[6] = true;
+  }
+
  }
 
  public void Btn_7 ()
@@ -460,6 +522,11 @@ public class jogovelha : MonoBehaviour {
      circulo[7].SetActive(true);
      Botoesmarcado[7].interactable = true;
    }
+
+    for (int i = 0; i < button.Length; i++)
+  {
+   button[7] = true;
+  }
 
 
  }
@@ -492,6 +559,11 @@ public class jogovelha : MonoBehaviour {
      circulo[8].SetActive(true);
      Botoesmarcado[8].interactable = true;
    }
+
+   for (int i = 0; i < button.Length; i++)
+  {
+   button[8] = true;
+  }
 
  }
 
