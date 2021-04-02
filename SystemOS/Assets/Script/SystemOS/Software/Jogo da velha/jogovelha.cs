@@ -28,6 +28,8 @@ public class jogovelha : MonoBehaviour {
     }
 
     Plate_Player();
+
+    
   }
   private void Update() 
   {
@@ -35,6 +37,13 @@ public class jogovelha : MonoBehaviour {
    // Wins();
     Pl1.text = PLAYER_1.ToString();
     Pl2.text = PLAYER_2.ToString();
+
+    for (int i = 0; i < bb.Length; i++)
+    {
+        empate = bb[i];
+        
+    }
+    
 
   }
 
@@ -54,8 +63,10 @@ public class jogovelha : MonoBehaviour {
    {
        for (int a = 0; a < BTN_X.Length; a++)
     {
-     switch (BTN_X[i] || BTN_O[i])       
-     { 
+      for (int ca = 0; ca < bb.Length; ca++)
+      {
+        switch (BTN_X[i] || BTN_O[i])       
+      { 
        case true:
           if (BTN_X[0] && BTN_X[3] && BTN_X[6])
           {
@@ -169,9 +180,14 @@ public class jogovelha : MonoBehaviour {
             offbutton();
             linha678.SetActive(true);
           }
+           if (bb[0] && bb[1] && bb[2] && bb[3] && bb[4] && bb[5] && bb[6] && bb[7] && bb[8] && empate)
+           { 
+             Reset();
+           }
        break;
       }
-    }
+     }  
+   } 
   }   
 
      if (Wins_P1)
@@ -217,7 +233,6 @@ public class jogovelha : MonoBehaviour {
 
    public void Reset () // reiniciar
    {
-     
      for (int i = 0; i < BTN_O.Length; i++)
      {
          for (int a = 0; a < BTN_X.Length; a++)
@@ -228,23 +243,28 @@ public class jogovelha : MonoBehaviour {
               {
                 for (int c = 0; c < ClickButton.Length; c++)
                 {
-                  ClickButton[c].enabled = true;
-                  x[xa].SetActive(false);
-                  BTN_O[i] = false;
-                  BTN_X[a] = false;
-                  circulo[o].SetActive(false);
-                  linha012.SetActive(false);
-                  linha036.SetActive(false);
-                  linha048.SetActive(false);
-                  linha147.SetActive(false);
-                  linha246.SetActive(false);
-                  linha258.SetActive(false);
-                  linha345.SetActive(false);
-                  linha678.SetActive(false);
-                  Clicked_BTN = !Clicked_BTN;
-                  Wins_P1 = false;
-                  Wins_P2 = false;
-                  cli = 0;
+                  for (int ca = 0; ca < bb.Length  ; ca++)
+                  {
+                   ClickButton[c].enabled = true;
+                   x[xa].SetActive(false);
+                   BTN_O[i] = false;
+                   BTN_X[a] = false;
+                   circulo[o].SetActive(false);
+                   linha012.SetActive(false);
+                   linha036.SetActive(false);
+                   linha048.SetActive(false);
+                   linha147.SetActive(false);
+                   linha246.SetActive(false);
+                   linha258.SetActive(false);
+                   linha345.SetActive(false);
+                   linha678.SetActive(false);
+                   Clicked_BTN = !Clicked_BTN;
+                   Wins_P1 = false;
+                   Wins_P2 = false;
+                   cli = 0;
+                   bb[ca] = false;
+                   empate = false;
+                  }
                 }
               }   
             }
@@ -254,7 +274,7 @@ public class jogovelha : MonoBehaviour {
 
    IEnumerator TimeWins (){
 
-     yield return new WaitForSeconds(1f);
+     yield return new WaitForSeconds(1.5f);
      Reset();
    }
 
@@ -266,12 +286,13 @@ public class jogovelha : MonoBehaviour {
   [SerializeField] private GameObject[] circulo;
   bool Clicked_BTN;
   public bool[] BTN_X , BTN_O;
+  public bool[] bb;
  public void Btn_0 ()
  { 
    Clicked_BTN = !Clicked_BTN;
-   
+   bb[0] = true;
    Plate_Player();
-   cli++;
+   
   
    if (Clicked_BTN) 
    {
@@ -298,7 +319,7 @@ public class jogovelha : MonoBehaviour {
  public void Btn_1 ()
  {
    Clicked_BTN = !Clicked_BTN;
-   cli++;
+   bb[1] = true;
 
    Plate_Player();
    
@@ -329,7 +350,7 @@ public class jogovelha : MonoBehaviour {
  public void Btn_2 ()
  {
     Clicked_BTN = !Clicked_BTN;
-    cli++;
+    bb[2] = true;
     Plate_Player();
 
    if (Clicked_BTN)
@@ -356,7 +377,7 @@ public class jogovelha : MonoBehaviour {
  public void Btn_3 ()
  {
    Clicked_BTN = !Clicked_BTN;
-   cli++;
+   bb[3] = true;
    Plate_Player();
 
    if (Clicked_BTN)
@@ -383,7 +404,7 @@ public class jogovelha : MonoBehaviour {
  public void Btn_4 ()
  {
     Clicked_BTN = !Clicked_BTN;
-    cli++;
+    bb[4] = true;
     Plate_Player();
 
    if (Clicked_BTN)
@@ -412,7 +433,7 @@ public class jogovelha : MonoBehaviour {
  public void Btn_5 ()
  {
     Clicked_BTN = !Clicked_BTN;
-    cli++;
+    bb[5] = true;
     Plate_Player();
 
    if (Clicked_BTN)
@@ -439,7 +460,7 @@ public class jogovelha : MonoBehaviour {
  public void Btn_6 ()
  {
     Clicked_BTN = !Clicked_BTN;
-    cli++;
+    bb[6] = true;
     Plate_Player();
 
    if (Clicked_BTN)
@@ -468,7 +489,7 @@ public class jogovelha : MonoBehaviour {
  { 
    
    Clicked_BTN = !Clicked_BTN;
-   cli++;
+   bb[7] = true;
    Plate_Player();
 
    if (Clicked_BTN)
@@ -495,7 +516,7 @@ public class jogovelha : MonoBehaviour {
  public void Btn_8 ()
  {
     Clicked_BTN = !Clicked_BTN;
-    cli++;
+    bb[8] = true;
     Plate_Player();
 
    if (Clicked_BTN)
