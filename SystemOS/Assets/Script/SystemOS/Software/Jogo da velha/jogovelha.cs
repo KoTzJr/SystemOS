@@ -6,9 +6,9 @@ using System.Collections.Generic;
 
 public class jogovelha : MonoBehaviour {
 
- 
+  public Image Player2Img ,Player1Img;
   private void Start() 
-  {
+  {  
     linha036.SetActive(false);
     linha048.SetActive(false);
     linha147.SetActive(false);
@@ -18,553 +18,506 @@ public class jogovelha : MonoBehaviour {
     linha012.SetActive(false);
     linha678.SetActive(false);
 
-    //Player1Txt.text = $"{"Player" + "\b" + Player1}";
-
     foreach (GameObject x_ in x)
     {
         x_.SetActive(false);
     }
-
     foreach (GameObject ciruclo in circulo)
     {
         ciruclo.SetActive(false);
     }
 
+    Plate_Player();
   }
-
- [SerializeField] private Text Player1Txt , Player2Txt;
   private void Update() 
   {
-   WinsPlayer1();
-   WinsPlayer2();
+    //Plate_Player();
+   // Wins();
+    Pl1.text = PLAYER_1.ToString();
+    Pl2.text = PLAYER_2.ToString();
+
   }
 
- [SerializeField] private GameObject[] x;
- [SerializeField] private GameObject[] circulo;
-  
-  
+ //===========================================================================Vitoria========================================================================== 
+ [SerializeField] private GameObject linha036 , linha048 , linha147, linha258 , linha345 , linha246 , linha012 , linha678;
+ [SerializeField] private Text Pl1,Pl2;
+  bool Wins_P1 , Wins_P2;
+  int PLAYER_1 , PLAYER_2;
 
-  bool play;
+  int cli;
 
- [SerializeField] private Button[] Botoesmarcado;
- 
- int Player1, Player2;
-
-[SerializeField] private GameObject linha036 , linha048 , linha147, linha258 , linha345 , linha246 , linha012 , linha678;
- public void WinsPlayer1 (){
+  bool empate;
+  public void Wins () // caso o ganhador do player 
+  {
    
-   for (int i = 0; i < player1Value.Length; i++)
+   for (int i = 0; i < BTN_O.Length; i++)
    {
-     if (player1Value[0] == 1 && player1Value[3] == 3 && player1Value[6] == 6 && Ply1b && a == true && button[0] == true && button[3] == true && button[6] == true)
-     {  
-        for (int v = 0; v < Botoesmarcado.Length; v++)               // Ok
-        {    
-             linha036.SetActive(true);
-             Botoesmarcado[i].enabled = false;
-             Player1++;
-        }
-     }
-     else if (player1Value[0] == 1 && player1Value[4] == 4 && player1Value[8] == 8 && Ply1b && a == true && button[0] == true && button[4] == true && button[8] == true)
-     {
-        for (int v = 0; v < Botoesmarcado.Length; v++)
-        {
-         linha048.SetActive(true);
-         Botoesmarcado[v].enabled = false;   
-         Debug.Log("Entrou / player 1");    // OK 
-         Player1++;  
-        }
-     }
-     else if (player1Value[2] == 2 && player1Value[4] == 4 && player1Value[6] == 6 && Ply1b && a == true && button[2] == true && button[4] && button[6] == true)
-     {
-       for (int v = 0; v < Botoesmarcado.Length; v++)
-       {
-          linha246.SetActive(true);
-          Botoesmarcado[v].enabled = false;  // Ok
-          Player1++;
-       }
-       
-     }
-     else if (player1Value[3] == 3 && player1Value[4] == 4 && player1Value[5] == 5 && Ply1b && a == true && button[3] == true && button[4] == true && button[5] == true)
-     {  
-        for (int v = 0; v < Botoesmarcado.Length; v++){
-          Botoesmarcado[v].enabled = false;
-          Player1++;                                    //ok
-          linha345.SetActive(true);
-        }
-       
-     }
-     else if (player1Value[1] == 1 && player1Value[4] == 4 && player1Value[7] == 7 && Ply1b && a == true && button[1] == true && button[4] == true && button[7] == true)
-     {
-       for (int v = 0; v < Botoesmarcado.Length; v++)
-       {
-          Botoesmarcado[v].enabled = false;
-          Player1++;                            //ok
-          linha147.SetActive(true);
-       }
-     }
-     else if (player1Value[2] == 2 && player1Value[5] == 5 && player1Value[8] == 8 && Ply1b && a == true && button[2] == true && button[5] == true && button[8] == true)
-     {
-       for (int v = 0; v < Botoesmarcado.Length; v++){
-         Botoesmarcado[v].enabled = false;
-         Player1++;                         //ok
-         linha258.SetActive(true);
-       }
-     }
-     else if (player1Value[0] == 1 && player1Value[1] == 1  && player1Value[2] == 2 && Ply1b && a == true && button[0] == true && button[1] == true && button[2] == true)
-     { 
-       for (int v = 0; v < Botoesmarcado.Length; v++){
-          Botoesmarcado[v].enabled = false;
-          Player1++;                          //ok
-          linha012.SetActive(true);
-       }
-        
-     }
-     else if (player1Value[6] == 6 && player1Value[7] == 7 && player1Value[8] == 8 && Ply1b && a == true && button[6] == true && button[7] == true && button[8] == true)
-     {
-       for (int v = 0; v < Botoesmarcado.Length; v++){
-         Botoesmarcado[v].enabled = false;
-         Player1++;
-         linha678.SetActive(true);
-       }
-        
-     } 
-       
-   }
-
- }
-
- // X = TRUE = 1 , O = FALSE = 0;
-
- public void WinsPlayer2 ()
- {
- 
- 
-  for (int i = 0;  i < button.Length; i++)
-  {
-     if (player2Value[0] == 0 && player2Value[3] == 3 && player2Value[6] == 6 && Ply2b && a == false && button[0] == true && button[3] == true && button[6] == true)
-   {
-     for (int v = 0; v < Botoesmarcado.Length; v++)
-     {
-      Botoesmarcado[v].enabled = false;
-      linha036.SetActive(true);
-      Player2++;
-     }
-   }
-   else if (player2Value[0] == 0 && player2Value[4] == 4 && player2Value[8] == 8 && Ply2b && a == false && button[0] == true && button[4] == true && button[8] == true)
-   {
-     for (int v = 0; v < Botoesmarcado.Length; v++)
-     {
-       Botoesmarcado[v].enabled = false;
-       Debug.Log("entrou / player 2");   ///! error 
-       linha048.SetActive(true);
-       Player2++;
-     }
-      
-     
-   }
-   else if (player2Value[2] == 2 && player2Value[4] == 4 && player2Value[6] == 6 && Ply2b && a == false && button[2] == true && button[4] == true && button[6] == true)
-   {
-      for (int v = 0; v < Botoesmarcado.Length; v++)
-      {
-        Botoesmarcado[v].enabled = false;
-        linha246.SetActive(true);
-        Player2++;
-      }
-     
-     
-   } 
-   else if (player2Value[3] == 3 && player2Value[4] == 4 && player2Value[5] == 5 && Ply2b && a == false && button[3] == true && button[4] == true && button[5] == true)
-   {
-     for (int v = 0; v < Botoesmarcado.Length; v++)
-     {
-      linha345.SetActive(true);
-      Botoesmarcado[v].enabled = false;
-      Player2++;
-     }
-      
-   }
-   else if (player2Value[1] == 1 && player2Value[4] == 4 && player2Value[7] == 7 && Ply2b && a == false && button[1] == true && button[4] == true && button[7] == true){
-     
-      for (int v = 0; v < Botoesmarcado.Length; v++)
-      {
-        Botoesmarcado[v].enabled = false;
-        linha147.SetActive(true);
-        Player2++;
-      }
-      
-   }
-  else if (player2Value[2] == 2 && player2Value[5] == 5 && player2Value[8] == 8 && Ply2b && a == false && button[2] == true && button[5] == true && button[8] == true){
-     
-     for (int v = 0; v < Botoesmarcado.Length; v++)
-     {
-       Botoesmarcado[v].enabled = false;
-       linha258.SetActive(true);
-       Player2++;
-     }
-     
-  }
-  else if (player2Value[0] == 0 && player2Value[1] == 1  && player2Value[2] == 2 && Ply2b  && a == false && button[0] == true && button[1] == true && button[2] == true){
-    
-     for (int v = 0; v < Botoesmarcado.Length; v++)
-     {
-       Botoesmarcado[v].enabled = false;
-       linha012.SetActive(true);
-       Player2++;
-     }
-      
-  }
-  else if (player2Value[6] == 6 && player2Value[7] == 7 && player2Value[8] == 8 && Ply2b && a == false && button[6] == true && button[7] == true && button[8] == true)
-  {
-    for (int v = 0; v < Botoesmarcado.Length; v++)
+       for (int a = 0; a < BTN_X.Length; a++)
     {
-      Botoesmarcado[v].enabled = false;
-      linha678.SetActive(true);
-      Player2++;
+     switch (BTN_X[i] || BTN_O[i])       
+     { 
+       case true:
+          if (BTN_X[0] && BTN_X[3] && BTN_X[6])
+          {
+            Wins_P1 = true;
+            empate = false;
+            offbutton();
+            linha036.SetActive(true);
+          }
+          else if (BTN_O[0] && BTN_O[3] && BTN_O[6])
+          {
+            Wins_P2 = true;
+            offbutton();
+            linha036.SetActive(true);
+          }
+          else if (BTN_X[0] && BTN_X[4] && BTN_X[8])
+          { 
+            //
+            Wins_P1 = true;
+            empate = false;
+            offbutton();
+            linha048.SetActive(true);
+          }
+          else if (BTN_O [0] && BTN_O[4] && BTN_O[8])
+          {   
+             Wins_P2 = true;
+             empate = false;
+             offbutton();
+             linha048.SetActive(true);
+          }
+          else if (BTN_X[1] && BTN_X[4] && BTN_X[7])
+          {
+             Wins_P1 = true;
+             empate = false;
+             offbutton();
+             linha147.SetActive(true);
+          }
+          else if (BTN_O[1] && BTN_O[4] && BTN_O[7])
+          {
+            Wins_P2 = true;
+            empate = false;
+            offbutton();
+            linha147.SetActive(true);
+          }
+          else if (BTN_X[2] && BTN_X[5] && BTN_X[8])
+          {
+            Wins_P1 = true;
+            empate = false;
+            offbutton();
+            linha258.SetActive(true);
+          }
+          else if (BTN_O[2] && BTN_O[5] && BTN_O[8])
+          {
+            Wins_P2 = true;
+            empate = false;
+            offbutton();
+            linha258.SetActive(true);
+          }
+          else if (BTN_X[3] && BTN_X[4] && BTN_X[5])
+          {
+            Wins_P1 = true;
+            empate = false;
+            offbutton();
+            linha345.SetActive(true);
+          }
+          else if (BTN_O[3] && BTN_O[4] && BTN_O[5])
+          {
+            Wins_P2 = true;
+            empate = false;
+            offbutton();
+            linha345.SetActive(true);
+          }
+          else if (BTN_X[2] && BTN_X[4] && BTN_X[6])
+          {
+            Wins_P1 = true;
+            empate = false;
+            offbutton();
+            linha246.SetActive(true);
+          }
+          else if (BTN_O[2] && BTN_O[4] && BTN_O[6])
+          {
+            Wins_P2 = true;
+            empate = false;
+            offbutton();
+            linha246.SetActive(true);
+          }
+          else if (BTN_X[0] && BTN_X[1] && BTN_X[2])
+          {
+            Wins_P1 = true;
+            empate = false;
+            offbutton();
+            linha012.SetActive(true);
+          }
+          else if (BTN_O[0] && BTN_O[1] && BTN_O[2])
+          {
+            Wins_P2 = true;
+            empate = false;
+            offbutton();
+            linha012.SetActive(true);
+          }
+          else if (BTN_X[6] && BTN_X[7] && BTN_X[8])
+          {
+            Wins_P1 = true;
+            empate = false;
+            offbutton();
+            linha678.SetActive(true);
+          }
+           else if (BTN_O[6] && BTN_O[7] && BTN_O[8])
+          {
+            Wins_P2 = true;
+            empate = false;
+            offbutton();
+            linha678.SetActive(true);
+          }
+       break;
+      }
     }
+  }   
+
+     if (Wins_P1)
+     {
+       StartCoroutine("TimeWins");
+       PLAYER_1++;
+       Player1Img.enabled = true;
+       Player2Img.enabled = false;
+     }
+     else if (Wins_P2)
+     {
+       StartCoroutine("TimeWins");
+       PLAYER_2++;
+       Player2Img.enabled = true;
+       Player1Img.enabled = false;
+       
+     }
    }
-  }
-}
- public int[] player1Value , player2Value;
- 
- bool Ply1b , Ply2b;
 
- bool a;
+   public void offbutton ()
+   {
+      for (int i = 0; i < ClickButton.Length; i++)
+      {
+         ClickButton[i].enabled = false;
+      }
+   }
 
- public bool[] button;
+   public void Plate_Player () 
+   {
+     if (Clicked_BTN == true)
+     {
+        Player2Img.enabled = true;
+        Player1Img.enabled = false;
+     }
+     else if (Clicked_BTN == false)
+     {
+        Player1Img.enabled = true;
+        Player2Img.enabled = false;
+     }
+    
+   }
 
- public bool[] testar;
 
- public List<bool> l = new List<bool>();
+   public void Reset () // reiniciar
+   {
+     
+     for (int i = 0; i < BTN_O.Length; i++)
+     {
+         for (int a = 0; a < BTN_X.Length; a++)
+         {
+            for (int xa= 0; xa < x.Length; xa++)
+            {
+              for (int o = 0; o < circulo.Length; o++)
+              {
+                for (int c = 0; c < ClickButton.Length; c++)
+                {
+                  ClickButton[c].enabled = true;
+                  x[xa].SetActive(false);
+                  BTN_O[i] = false;
+                  BTN_X[a] = false;
+                  circulo[o].SetActive(false);
+                  linha012.SetActive(false);
+                  linha036.SetActive(false);
+                  linha048.SetActive(false);
+                  linha147.SetActive(false);
+                  linha246.SetActive(false);
+                  linha258.SetActive(false);
+                  linha345.SetActive(false);
+                  linha678.SetActive(false);
+                  Clicked_BTN = !Clicked_BTN;
+                  Wins_P1 = false;
+                  Wins_P2 = false;
+                  cli = 0;
+                }
+              }   
+            }
+         }
+     }
+   }
 
- ///=========================================================================================================================
+   IEnumerator TimeWins (){
+
+     yield return new WaitForSeconds(1f);
+     Reset();
+   }
+
+ //=============================================================================================================================================================================================
+
+// x = true & O = false
+  public Button[] ClickButton = new Button[9];
+  [SerializeField] private GameObject[] x;
+  [SerializeField] private GameObject[] circulo;
+  bool Clicked_BTN;
+  public bool[] BTN_X , BTN_O;
  public void Btn_0 ()
  { 
-
-   play = !play;
-
-   //aa
-
-   for (int i = 0; i < testar.Length; i++)
+   Clicked_BTN = !Clicked_BTN;
+   
+   Plate_Player();
+   cli++;
+  
+   if (Clicked_BTN) 
    {
-       testar[0] = !testar[0];
-       l.Add(testar[0]);
+     for (int i = 0; i < ClickButton.Length; i++)
+     {   
+         
+         BTN_X[0] = true;
+         x[0].SetActive(true);
+         ClickButton[0].enabled = false;
+     }
    }
-
-   if (play)   
+   else 
    {
-      int ply1 = 1;
-      player1Value[0] = ply1;
-      Ply1b = true;
-      Ply2b = false;
-      a = true;
-      Botoesmarcado[0].enabled = false;
-      Botoesmarcado[0].interactable = true;
-      x[0].SetActive(true);
+      for (int i = 0; i < ClickButton.Length; i++)
+      {
+          cli = 1;
+          BTN_O[0] = true;
+          circulo[0].SetActive(true);
+          ClickButton[0].enabled = false;
+      }
    }
-   else
-   {  
-      int ply2 = 0;
-      player2Value[0] = ply2;
-      Ply2b = true;
-      Ply1b = false;
-      a = false;
-      Botoesmarcado[0].enabled = false;
-      circulo[0].SetActive(true);
-      Botoesmarcado[0].interactable = true;
-   }
-
-   for (int i = 0; i < button.Length; i++)
-   {
-    button[0] = true;
-   }
-
+   Wins();
  }
- 
  public void Btn_1 ()
  {
-   
-   play = !play;
+   Clicked_BTN = !Clicked_BTN;
+   cli++;
 
+   Plate_Player();
    
-   for (int i = 0; i < testar.Length; i++)
+   if (Clicked_BTN)
    {
-       testar[1] = !testar[1];
-       l.Add(testar[i]);
+     for (int i = 0; i < ClickButton.Length; i++)
+     {   
+        
+         BTN_X[1] = true;
+         x[1].SetActive(true);
+         ClickButton[1].enabled = false;
+     }
    }
-  
-   if (play)
-    {  
-      int ply1 = 1;
-      player1Value[1] = ply1;
-      Ply1b = true;
-      Ply2b = false;
-      a = true;
-      Botoesmarcado[1].enabled = false;
-      x[1].SetActive(true);
-      Botoesmarcado[1].interactable = true;
-    }
-    else 
-    {
-     int ply2 = 1;
-     player2Value[1] = ply2;
-     Ply2b = true;
-     Ply1b = false;
-     a = false;
-     Botoesmarcado[1].enabled = false;
-     circulo[1].SetActive(true);
-     Botoesmarcado[1].interactable = true;
-    }
+   else 
+   {
+      for (int i = 0; i < ClickButton.Length; i++)
+      {
+          BTN_O[1] = true;
+          circulo[1].SetActive(true);
+          ClickButton[1].enabled = false;
+      }
+   }
 
-    for (int i = 0; i < button.Length; i++)
-    {
-   
-    button[1] = true;
-   }
+   Wins();
      
  }
 
  public void Btn_2 ()
  {
-  
-   play = !play;
+    Clicked_BTN = !Clicked_BTN;
+    cli++;
+    Plate_Player();
 
-   if (play)
+   if (Clicked_BTN)
    {
-      int ply1 = 2 ;
-      Ply1b = true;
-      Ply2b = false;
-      a = true;
-      player1Value[2] = ply1;
-      Botoesmarcado[2].enabled = false;
-      x[2].SetActive(true);
-      Botoesmarcado[1].interactable = true;
+     for (int i = 0; i < ClickButton.Length; i++)
+     {   
+         BTN_X[2] = true;
+         x[2].SetActive(true);
+         ClickButton[2].enabled = false;
+     }
    }
    else 
-   { 
-     int ply2 = 2;
-     Ply2b = true;
-     Ply1b = false;
-     a = false;
-     Botoesmarcado[2].enabled = false;
-     player2Value[2] = ply2;
-     circulo[2].SetActive(true);
-     Botoesmarcado[2].interactable = true;
+   {
+      for (int i = 0; i < ClickButton.Length; i++)
+      {
+          BTN_O[2] = true;
+          circulo[2].SetActive(true);
+          ClickButton[2].enabled = false;
+      }
    }
-
-  for (int i = 0; i < button.Length; i++)
-  {
-   button[2] = true;
-  }
+   Wins();
  }
 
  public void Btn_3 ()
  {
-  
-   play = !play;
+   Clicked_BTN = !Clicked_BTN;
+   cli++;
+   Plate_Player();
 
-   if (play)
+   if (Clicked_BTN)
    {
-      int ply1 = 3;
-      Ply1b = true;
-      Ply2b = false;
-      a = true;
-      player1Value[3] = ply1;
-      Botoesmarcado[3].enabled = false;
-      x[3].SetActive(true);
-      Botoesmarcado[3].interactable = true;
+     for (int i = 0; i < ClickButton.Length; i++)
+     {   
+         BTN_X[3] = true;
+         x[3].SetActive(true);
+         ClickButton[3].enabled = false;
+     }
    }
    else 
    {
-     int ply2 = 3;
-     Ply2b = true;
-     Ply1b = false;
-     a = false;
-     player2Value[3] = ply2;
-     Botoesmarcado[3].enabled = false;
-     circulo[3].SetActive(true);
-     Botoesmarcado[3].interactable = true;
+      for (int i = 0; i < ClickButton.Length; i++)
+      {
+          BTN_O[3] = true;
+          circulo[3].SetActive(true);
+          ClickButton[3].enabled = false;
+      }
    }
-    for (int i = 0; i < button.Length; i++)
-  {
-   button[3] = true;
-  }
+   Wins();
  }
 
  public void Btn_4 ()
  {
+    Clicked_BTN = !Clicked_BTN;
+    cli++;
+    Plate_Player();
 
-   play = !play;
-
-   if (play)
-   { 
-      int ply1 = 4;
-      Ply1b = true;
-      Ply2b = false;
-      a = true;
-      player1Value[4] = ply1;
-      Botoesmarcado[4].enabled = false;
-      x[4].SetActive(true);
-      Botoesmarcado[4].interactable = true;
+   if (Clicked_BTN)
+   {
+     for (int i = 0; i < ClickButton.Length; i++)
+     {   
+         BTN_X[4] = true;
+         BTN_O[4] = false;
+         x[4].SetActive(true);
+         ClickButton[4].enabled = false;
+     }
    }
    else 
    {
-     int ply2 = 4;
-     Ply2b = true;
-     Ply1b = false;
-     a = false;
-     player2Value[4] = ply2;
-     Botoesmarcado[4].enabled = false;
-     
-     circulo[4].SetActive(true);
-     Botoesmarcado[4].interactable = true;
+      for (int i = 0; i < ClickButton.Length; i++)
+      {
+          BTN_O[4] = true;
+          BTN_X[4] = false;
+          circulo[4].SetActive(true);
+          ClickButton[4].enabled = false;
+      }
    }
-
-  for (int i = 0; i < button.Length; i++)
-  {
-    button[4] = true;
-  }
-
+   Wins();
  }
 
  public void Btn_5 ()
  {
-    play = !play;
+    Clicked_BTN = !Clicked_BTN;
+    cli++;
+    Plate_Player();
 
-   if (play)
+   if (Clicked_BTN)
    {
-      int ply1 = 5;
-      Ply1b = true;
-      Ply2b = false;
-      a = true;
-      player1Value[5] = ply1;
-      Botoesmarcado[5].enabled = false;
-     
-      x[5].SetActive(true);
-      Botoesmarcado[5].interactable = true;
+     for (int i = 0; i < ClickButton.Length; i++)
+     {   
+         BTN_X[5] = true;
+         x[5].SetActive(true);
+         ClickButton[5].enabled = false;
+     }
    }
    else 
    {
-      int ply2 = 5;
-      Ply2b = true;
-      Ply1b = false;
-      a = false;
-      player2Value[5] = ply2;
-      Botoesmarcado[5].enabled = false;
-      circulo[5].SetActive(true);
-      Botoesmarcado[5].interactable = true;
+      for (int i = 0; i < ClickButton.Length; i++)
+      {
+          BTN_O[5] = true;
+          circulo[5].SetActive(true);
+          ClickButton[5].enabled = false;
+      }
    }
-
-   for (int i = 0; i < button.Length; i++)
-  {
-   button[5] = true;
-  }
-
+   Wins();
  }
 
  public void Btn_6 ()
  {
-   play = !play;
+    Clicked_BTN = !Clicked_BTN;
+    cli++;
+    Plate_Player();
 
-   if (play)
+   if (Clicked_BTN)
    {
-      int ply1 = 6;
-      Ply1b = true;
-      a = true;
-      Ply2b = false;
-      player1Value[6] = ply1;
-      Botoesmarcado[6].enabled = false;
-      x[6].SetActive(true);
-      Botoesmarcado[6].interactable = true;
+     for (int i = 0; i < ClickButton.Length; i++)
+     {   
+         BTN_X[6] = true;
+         x[6].SetActive(true);
+         ClickButton[6].enabled = false;
+     }
    }
    else 
    {
-     int ply2 = 6;
-     Ply2b = true;
-     Ply1b = false;
-     a = false;
-     player2Value[6] = ply2;
-     Botoesmarcado[6].enabled = false;
-     
-     circulo[6].SetActive(true);
-     Botoesmarcado[6].interactable = true;
+      for (int i = 0; i < ClickButton.Length; i++)
+      {
+          BTN_O[6] = true;
+          circulo[6].SetActive(true);
+          ClickButton[6].enabled = false;
+      }
    }
-
-   for (int i = 0; i < button.Length; i++)
-  {
-   button[6] = true;
-  }
+   Wins();
 
  }
 
  public void Btn_7 ()
  { 
-    play = !play;
+   
+   Clicked_BTN = !Clicked_BTN;
+   cli++;
+   Plate_Player();
 
-   if (play)
+   if (Clicked_BTN)
    {
-      int ply1 = 7;
-      Ply1b = true;
-      Ply2b = false;
-      a = true;
-      player1Value[7] = ply1;
-      Botoesmarcado[7].enabled = false;
-      x[7].SetActive(true);
-      Botoesmarcado[7].interactable = true;
+     for (int i = 0; i < ClickButton.Length; i++)
+     {   
+         BTN_X[7] = true;
+         x[7].SetActive(true);
+         ClickButton[7].enabled = false;
+     }
    }
    else 
-   { 
-     int ply2 = 7;
-     Ply2b = true;
-     a = false;
-     Ply1b = false;
-     player2Value[7] = ply2;
-     Botoesmarcado[7].enabled = false;
-     circulo[7].SetActive(true);
-     Botoesmarcado[7].interactable = true;
+   {
+      for (int i = 0; i < ClickButton.Length; i++)
+      {
+          BTN_O[7] = true;
+          circulo[7].SetActive(true);
+          ClickButton[7].enabled = false;
+      }
    }
-
-    for (int i = 0; i < button.Length; i++)
-  {
-   button[7] = true;
-  }
-
-
+   Wins();
  }
 
  public void Btn_8 ()
  {
-    play = !play;
+    Clicked_BTN = !Clicked_BTN;
+    cli++;
+    Plate_Player();
 
-   if (play)
+   if (Clicked_BTN)
    {
-      int ply1 = 8;
-      Ply1b = true;
-      Ply2b = false;
-      a = true;
-      player1Value[8] = ply1;
-      Botoesmarcado[8].enabled = false;
-     
-      x[8].SetActive(true);
-      Botoesmarcado[8].interactable = true;
+     for (int i = 0; i < ClickButton.Length; i++)
+     {   
+        BTN_X[8] = true;
+        x[8].SetActive(true);
+        ClickButton[8].enabled = false;
+     }
+
    }
    else 
    {
-     int ply2 = 9;
-     Ply2b = true;
-     Ply1b = false;
-     a = false;
-     player2Value[8] = ply2;
-     Botoesmarcado[8].enabled = false;
-    
-     circulo[8].SetActive(true);
-     Botoesmarcado[8].interactable = true;
+      for (int i = 0; i < ClickButton.Length; i++)
+      {
+        BTN_O[8] = true;
+        circulo[8].SetActive(true);
+        ClickButton[8].enabled = false;
+      }
    }
-
-   for (int i = 0; i < button.Length; i++)
-  {
-   button[8] = true;
-  }
-
+   Wins();
  }
 
 }
