@@ -32,10 +32,11 @@ public class bloco_nota : MonoBehaviour {
 
       txt_br_bloco.enabled = false;
       txt_input.enabled = false;
+    
     }
     
    private void Update() {
-       
+    
        
    }
 
@@ -110,6 +111,5 @@ public class bloco_nota : MonoBehaviour {
    {
      this.avisosave_not_save.SetActive(false);
    }
-
-
+   
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DownloadApp : MonoBehaviour
+public class DownloadApp : MonoBehaviour 
 {
 
     [SerializeField] private Image[] storeOn;
@@ -21,33 +21,20 @@ public class DownloadApp : MonoBehaviour
          }
      }
    
-   
     private void Update()
     {
         ConnectStore();
     }
-  
-   
 
 
   public void ConnectStore ()
+
   {
-     if (RedeWifi.isconnect)
-     {
-
-     }
+      if (RedeWifi.isconnect)
+      {
+         Debug.Log("teste");
+      }
   }
-
-
-
-
-
-
-
-
-
-
-
 
 
 

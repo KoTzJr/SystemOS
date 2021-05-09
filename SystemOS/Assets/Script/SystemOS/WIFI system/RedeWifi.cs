@@ -80,15 +80,13 @@ public class RedeWifi : MonoBehaviour {
 
 
     // Random Password ========================================================================================================
-
-
     string[] Password = { "up2GEB", "kErwfR","CcMp17","uzfuy7","noiqoo","teigmp","insuqn","tznqat"};
     int passaword_0, passaword_1, passaword_2, passaword_3;
 
 
     string pas0, pas1, pas2, pas3;
 
-    public void RandomPassword ()
+    public void RandomPassword () // Senha random 
     {
        for (int i = 0; i < Password.Length; i++)
        {

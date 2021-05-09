@@ -22,6 +22,12 @@ public class InicioCarregado : MonoBehaviour
   {
      Carregado();
      StartCoroutine("Tempo_carregado");
+
+     if (Input.GetKey(KeyCode.C) && Input.GetKey(KeyCode.Tab))
+     {
+         PlayerPrefs.DeleteAll();
+         Debug.Log("Delete..");
+     }
   }
 
  IEnumerator Tempo_carregado (){
